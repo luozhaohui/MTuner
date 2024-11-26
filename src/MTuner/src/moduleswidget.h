@@ -12,31 +12,31 @@ struct CaptureContext;
 
 class ModulesWidget : public QWidget
 {
-	Q_OBJECT
+    Q_OBJECT
 
 private:
-	QLineEdit*		m_filter;
-	QTreeWidget*	m_list;
-	QTreeWidgetItem*m_currentItem;
-	CaptureContext*	m_context;
-	rdebug::ModuleInfo* m_currentInfo;
+    QLineEdit* m_filter;
+    QTreeWidget* m_list;
+    QTreeWidgetItem* m_currentItem;
+    CaptureContext* m_context;
+    rdebug::ModuleInfo* m_currentInfo;
 
 public:
-	ModulesWidget(QWidget* _parent = 0, Qt::WindowFlags _flags = (Qt::WindowFlags)0);
+    ModulesWidget(QWidget* _parent = 0, Qt::WindowFlags _flags = (Qt::WindowFlags)0);
 
-	void changeEvent(QEvent* _event);
-	void setContext(CaptureContext* _capture);
-	void setCurrentModule(rdebug::ModuleInfo* _module);
+    void changeEvent(QEvent* _event);
+    void setContext(CaptureContext* _capture);
+    void setCurrentModule(rdebug::ModuleInfo* _module);
 
 public Q_SLOTS:
-	void itemClicked(QTreeWidgetItem* _currentItem, int _column);
-	void filterChanged(const QString&);
+    void itemClicked(QTreeWidgetItem* _currentItem, int _column);
+    void filterChanged(const QString&);
 
 Q_SIGNALS:
-	void moduleSelected(void*);
+    void moduleSelected(void*);
 
 private:
-	Ui::ModulesWidget ui;
+    Ui::ModulesWidget ui;
 };
 
-#endif // RTM_MTUNER_MODULESWIDGET_H
+#endif  // RTM_MTUNER_MODULESWIDGET_H

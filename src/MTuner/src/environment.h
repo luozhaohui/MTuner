@@ -10,27 +10,27 @@
 
 class Environment : public QDialog
 {
-	Q_OBJECT
+    Q_OBJECT
 
-	QStringList	m_environment;
+    QStringList m_environment;
 
 public:
-	Environment(QWidget* _parent = 0, Qt::WindowFlags _flags = (Qt::WindowFlags)0);
+    Environment(QWidget* _parent = 0, Qt::WindowFlags _flags = (Qt::WindowFlags)0);
 
-	void changeEvent(QEvent* _event);
+    void changeEvent(QEvent* _event);
 
-	void		setEnvironment(QStringList _env);
-	QStringList	getEnvironment();
+    void setEnvironment(QStringList _env);
+    QStringList getEnvironment();
 
 public Q_SLOTS:
-	void newVar();
-	void editVar();
-	void deleteVar();
-	void accept();
-	void reject();
+    void newVar();
+    void editVar();
+    void deleteVar();
+    void accept();
+    void reject();
 
 private:
-	Ui::Environment ui;
+    Ui::Environment ui;
 };
 
-#endif // RTM_MTUNER_ENVIRONMENT_H
+#endif  // RTM_MTUNER_ENVIRONMENT_H

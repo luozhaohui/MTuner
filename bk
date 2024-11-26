@@ -1,0 +1,75 @@
+#!/usr/bin/env python
+# Template file from https://bitbucket.telenav.com/projects/NAV/repos/buildkit/browse/templates/bk
+# Document: https://bitbucket.telenav.com/projects/NAV/repos/buildkit/browse
+# Version: 1.2.0
+# Maintainer: zhhluo@telenav.cn
+#
+# Change logs:
+# v1.2.0: use bkloader to update buildkit
+# v1.1.0: support python3
+# v1.0.0: initialization
+#
+
+import sys
+import os
+
+# Use a fixed version of BuildKit.
+# os.environ['TN_BUILDKIT_VERSION'] = "2.4.80"
+# os.environ['TN_BUILDKIT_BRANCH_TEST'] = "no"
+
+BUILDKIT_LOADER_URL = 'https://artifactory.telenav.com/telenav-ivy-preprod/v2/nav/buildtools/bin/bkloader-v2.4'
+
+# support python2 & python3
+PY2 = sys.version_info[0] == 2
+if PY2:
+    from urllib2 import Request, urlopen
+else:
+    import urllib.request as Request
+    from urllib.request import urlopen
+
+
+def readUrl(url):
+    if PY2:
+        f = urlopen(Request(url))
+    else:
+        f = urlopen(url)
+    return '{}'.format(f.read().decode("utf-8"))
+
+
+# Set up paths
+buildkitDir = os.path.join(os.path.dirname(__file__), 'buildkit')
+pythonLibDir = os.path.join(buildkitDir, 'lib', 'python')
+binDir = os.path.join(buildkitDir, 'bin')
+
+# Parse options
+skipUpdate = False
+for arg in sys.argv[1:]:
+    if arg == '--skip-update':
+        skipUpdate = True
+        break
+
+# Check updates
+pythonLibDirExist = os.path.exists(pythonLibDir)
+if (not skipUpdate) or (not pythonLibDirExist):
+    counter = 0
+    while counter < 3:
+        try:
+            counter = counter + 1
+            expr = readUrl(BUILDKIT_LOADER_URL)
+            exec(expr)
+            break
+        except Exception as err:
+            if (counter >= 3) and (not pythonLibDirExist):
+                print("Failed to update buildkit. error: {}".format(err))
+                exit(-1)
+
+# Update environment variables
+sys.path.insert(0, binDir)
+sys.path.insert(0, pythonLibDir)
+
+# autopep8: off
+from tnbuildtools2 import *
+# autopep8: on
+
+if __name__ == '__main__':
+    main()

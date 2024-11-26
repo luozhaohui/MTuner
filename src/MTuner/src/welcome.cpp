@@ -6,23 +6,23 @@
 #include <MTuner_pch.h>
 #include <MTuner/src/welcome.h>
 
-WelcomeDialog::WelcomeDialog(QWidget* _parent, Qt::WindowFlags) :
-	QDialog(_parent, Qt::WindowSystemMenuHint | Qt::WindowTitleHint)
+WelcomeDialog::WelcomeDialog(QWidget* _parent, Qt::WindowFlags)
+    : QDialog(_parent, Qt::WindowSystemMenuHint | Qt::WindowTitleHint)
 {
-	ui.setupUi(this);
+    ui.setupUi(this);
 
-	connect(ui.buttonSymbols,		&QPushButton::clicked, this, &WelcomeDialog::setupSymbols);
-	connect(ui.buttonDocumentation,	&QPushButton::clicked, this, &WelcomeDialog::readDocumentation);
+    connect(ui.buttonSymbols, &QPushButton::clicked, this, &WelcomeDialog::setupSymbols);
+    connect(ui.buttonDocumentation, &QPushButton::clicked, this, &WelcomeDialog::readDocumentation);
 }
 
 void WelcomeDialog::changeEvent(QEvent* _event)
 {
-	QDialog::changeEvent(_event);
-	if (_event->type() == QEvent::LanguageChange)
-		ui.retranslateUi(this);
+    QDialog::changeEvent(_event);
+    if (_event->type() == QEvent::LanguageChange)
+        ui.retranslateUi(this);
 }
 
 bool WelcomeDialog::shouldShowNextTime() const
 {
-	return ui.checkBox->isChecked();
+    return ui.checkBox->isChecked();
 }

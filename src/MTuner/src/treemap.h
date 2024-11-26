@@ -11,31 +11,31 @@
 
 class TreeMapWidget : public QWidget
 {
-	Q_OBJECT
+    Q_OBJECT
 
 private:
-	QGraphicsScene*			m_scene;
-	CaptureContext*			m_context;
-	TreeMapView*			m_graphicsView;
-	TreeMapGraphicsItem*	m_map;
+    QGraphicsScene* m_scene;
+    CaptureContext* m_context;
+    TreeMapView* m_graphicsView;
+    TreeMapGraphicsItem* m_map;
 
 public:
-	TreeMapWidget(QWidget* _parent = 0, Qt::WindowFlags _flags = (Qt::WindowFlags)0);
+    TreeMapWidget(QWidget* _parent = 0, Qt::WindowFlags _flags = (Qt::WindowFlags)0);
 
-	void changeEvent(QEvent* _event);
-	void setContext(CaptureContext* _context);
-	void setFilteringState(bool _state);
-	
+    void changeEvent(QEvent* _event);
+    void setContext(CaptureContext* _context);
+    void setFilteringState(bool _state);
+
 public Q_SLOTS:
-	void treeMapTypeChanged(int _type);
-	
+    void treeMapTypeChanged(int _type);
+
 Q_SIGNALS:
-	void setStackTrace(rtm::StackTrace**, int);
-	void highlightTime(uint64_t);
-	void highlightRange(uint64_t, uint64_t);
+    void setStackTrace(rtm::StackTrace**, int);
+    void highlightTime(uint64_t);
+    void highlightRange(uint64_t, uint64_t);
 
 private:
-	Ui::TreeMap ui;
+    Ui::TreeMap ui;
 };
 
-#endif // RTM_MTUNER_TREEMAP_H
+#endif  // RTM_MTUNER_TREEMAP_H

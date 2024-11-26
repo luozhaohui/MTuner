@@ -11,21 +11,23 @@ class GraphWidget;
 class GraphSelect : public QGraphicsItem
 {
 private:
-	GraphWidget*	m_graphWidget;
-	uint64_t		m_minTime;
-	uint64_t		m_maxTime;
+    GraphWidget* m_graphWidget;
+    uint64_t m_minTime;
+    uint64_t m_maxTime;
 
 public:
-	GraphSelect(GraphWidget* _graphWidget);
+    GraphSelect(GraphWidget* _graphWidget);
 
-	void parentResized() { prepareGeometryChange(); }
-	void setSelectRange(uint64_t _minTime, uint64_t _maxTime);
+    void parentResized()
+    {
+        prepareGeometryChange();
+    }
+    void setSelectRange(uint64_t _minTime, uint64_t _maxTime);
 
-	/// QWidget
-	virtual QRectF			boundingRect() const;
-	virtual QPainterPath	shape() const;
-	virtual void			paint(QPainter* _painter, const QStyleOptionGraphicsItem* _option, QWidget* _widget);
-	
+    /// QWidget
+    virtual QRectF boundingRect() const;
+    virtual QPainterPath shape() const;
+    virtual void paint(QPainter* _painter, const QStyleOptionGraphicsItem* _option, QWidget* _widget);
 };
 
-#endif // RTM_MTUNER_GRAPHSELECT_H
+#endif  // RTM_MTUNER_GRAPHSELECT_H

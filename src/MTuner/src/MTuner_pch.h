@@ -82,6 +82,6 @@
 #include <QtWidgets/QToolButton>
 #include <QtWidgets/QGraphicsSceneHoverEvent>
 
-#include "../3rd/unordered_dense/include/ankerl/unordered_dense.h"
+#include <robin_hood/robin_hood.h>
 
-#endif // RTM_MTUNER_PCH_H
+#endif  // RTM_MTUNER_PCH_H

@@ -14,31 +14,33 @@ struct CaptureContext;
 /// Disable focus selection on table
 class StatsDelegate : public QItemDelegate
 {
-	Q_OBJECT
+    Q_OBJECT
 public:
-	virtual void drawFocus(QPainter*,const QStyleOptionViewItem&,const QRect&) const {}
+    virtual void drawFocus(QPainter*, const QStyleOptionViewItem&, const QRect&) const
+    {
+    }
 };
 
 class Stats : public QWidget
 {
-	Q_OBJECT
+    Q_OBJECT
 
 private:
-	QTableWidget*	m_table;
-	CaptureContext*	m_context;
+    QTableWidget* m_table;
+    CaptureContext* m_context;
 
 public:
-	Stats(QWidget* _parent = 0, Qt::WindowFlags _flags = (Qt::WindowFlags)0);
+    Stats(QWidget* _parent = 0, Qt::WindowFlags _flags = (Qt::WindowFlags)0);
 
-	void changeEvent(QEvent* event);
-	void setContext(CaptureContext* _context);
-	void clear();
+    void changeEvent(QEvent* event);
+    void setContext(CaptureContext* _context);
+    void clear();
 
 public Q_SLOTS:
-	void updateUI();
+    void updateUI();
 
 private:
-	Ui::Stats ui;
+    Ui::Stats ui;
 };
 
-#endif // RTM_MTUNER_STATS_H
+#endif  // RTM_MTUNER_STATS_H

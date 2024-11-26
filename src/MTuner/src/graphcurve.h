@@ -12,36 +12,44 @@ class GraphWidget;
 class GraphCurve : public QGraphicsItem
 {
 private:
-	typedef std::vector<rtm::GraphEntry> GraphVec;
+    typedef std::vector<rtm::GraphEntry> GraphVec;
 
-	Graph*			m_graph;
-	GraphWidget*	m_graphWidget;
-	uint64_t		m_minUsage;
-	uint64_t		m_maxUsage;
-	GraphVec		m_graphValues;
-	bool			m_prevAutoZoom;
-	uint64_t		m_prevMinTime;
-	uint64_t		m_prevMaxTime;
-	int64_t			m_prevLeft;
-	int64_t			m_prevRight;
-	uint64_t		m_prevPeakUsage;
-	uint64_t		m_prevMinUsage;
-	uint64_t		m_prevPeakLive;
-	uint64_t		m_prevMinLive;
+    Graph* m_graph;
+    GraphWidget* m_graphWidget;
+    uint64_t m_minUsage;
+    uint64_t m_maxUsage;
+    GraphVec m_graphValues;
+    bool m_prevAutoZoom;
+    uint64_t m_prevMinTime;
+    uint64_t m_prevMaxTime;
+    int64_t m_prevLeft;
+    int64_t m_prevRight;
+    uint64_t m_prevPeakUsage;
+    uint64_t m_prevMinUsage;
+    uint64_t m_prevPeakLive;
+    uint64_t m_prevMinLive;
 
 public:
-	GraphCurve(GraphWidget* _graphWidget);
+    GraphCurve(GraphWidget* _graphWidget);
 
-	void		setGraph(Graph* _graph);
-	uint64_t	getMinUsage() const { return m_prevMinUsage; }
-	uint64_t	getMaxUsage() const { return m_prevPeakUsage; }
-	void		parentResized() { prepareGeometryChange(); }
+    void setGraph(Graph* _graph);
+    uint64_t getMinUsage() const
+    {
+        return m_prevMinUsage;
+    }
+    uint64_t getMaxUsage() const
+    {
+        return m_prevPeakUsage;
+    }
+    void parentResized()
+    {
+        prepareGeometryChange();
+    }
 
-	/// QWidget
-	virtual QRectF			boundingRect() const;
-	virtual QPainterPath	shape() const;
-	virtual void			paint(QPainter* _painter, const QStyleOptionGraphicsItem* _option, QWidget* _widget);
-	
+    /// QWidget
+    virtual QRectF boundingRect() const;
+    virtual QPainterPath shape() const;
+    virtual void paint(QPainter* _painter, const QStyleOptionGraphicsItem* _option, QWidget* _widget);
 };
 
-#endif // RTM_MTUNER_GRAPHCURVE_H
+#endif  // RTM_MTUNER_GRAPHCURVE_H

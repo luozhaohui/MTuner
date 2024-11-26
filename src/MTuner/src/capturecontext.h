@@ -12,18 +12,21 @@ class BinLoaderView;
 
 struct CaptureContext
 {
-	rtm::Capture*			m_capture;
-	uintptr_t				m_symbolResolver;
-	std::string				m_symbolStoreDName;
-	rmem::ToolChain::Enum	m_toolchain;
-	BinLoaderView*			m_binLoaderView;
+    rtm::Capture* m_capture;
+    uintptr_t m_symbolResolver;
+    std::string m_symbolStoreDName;
+    rmem::ToolChain::Enum m_toolchain;
+    BinLoaderView* m_binLoaderView;
 
-	CaptureContext();
-	~CaptureContext();
+    CaptureContext();
+    ~CaptureContext();
 
-	void		setupResolver(rdebug::Toolchain& _tc, std::string& _executable, rdebug::module_load_cb _callback, void* _data);
-	std::string	getSymbolStoreDir() const { return m_symbolStoreDName; }
-	void		resolveStackFrame(uint64_t _address, rdebug::StackFrame& ioFrame);
+    void setupResolver(rdebug::Toolchain& _tc, std::string& _executable, rdebug::module_load_cb _callback, void* _data);
+    std::string getSymbolStoreDir() const
+    {
+        return m_symbolStoreDName;
+    }
+    void resolveStackFrame(uint64_t _address, rdebug::StackFrame& ioFrame);
 };
 
-#endif // RTM_MTUNER_CAPTURE_CONTEXT_H
+#endif  // RTM_MTUNER_CAPTURE_CONTEXT_H

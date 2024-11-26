@@ -1,5 +1,15 @@
 .qt
 .build
-.DS_Store
+**/.DS_Store
+**/*.pyc
+**/build/**
+**/modules/**
+**/.vscode/**
+**/.history/**
+**/.scannerwork/**
+**/.idea/**
+buildkit
+*.pro.user
+**/.clangd
 
 

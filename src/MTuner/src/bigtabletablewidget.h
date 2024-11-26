@@ -8,17 +8,20 @@
 
 class BigTableTableWidget : public QTableWidget
 {
-	Q_OBJECT
+    Q_OBJECT
 
 public:
-	BigTableTableWidget(QWidget* _parent = 0);
+    BigTableTableWidget(QWidget* _parent = 0);
 
-	/// Disable default navigation
-	QModelIndex moveCursor(QAbstractItemView::CursorAction, Qt::KeyboardModifiers) { return QModelIndex(); }
-	void contextMenuEvent(QContextMenuEvent* _event);
+    /// Disable default navigation
+    QModelIndex moveCursor(QAbstractItemView::CursorAction, Qt::KeyboardModifiers)
+    {
+        return QModelIndex();
+    }
+    void contextMenuEvent(QContextMenuEvent* _event);
 
 Q_SIGNALS:
-	void itemContextMenu(QTableWidgetItem*, const QPoint&);
+    void itemContextMenu(QTableWidgetItem*, const QPoint&);
 };
 
-#endif // RTM_MTUNER_BIGTABLETABLEWIDGET_H
+#endif  // RTM_MTUNER_BIGTABLETABLEWIDGET_H

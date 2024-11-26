@@ -11,41 +11,47 @@ struct CaptureContext;
 
 class HistogramView : public QGraphicsView
 {
-	Q_OBJECT
+    Q_OBJECT
 
 private:
-    QGraphicsScene*	m_scene;
-	CaptureContext*	m_context;
-	Histogram*		m_histogram;
-	QLabel*			m_toolTipLabel;
-	int				m_mode;
-	bool			m_showPeaks;
-	int				m_histogramType;
+    QGraphicsScene* m_scene;
+    CaptureContext* m_context;
+    Histogram* m_histogram;
+    QLabel* m_toolTipLabel;
+    int m_mode;
+    bool m_showPeaks;
+    int m_histogramType;
 
 public:
-	static const int	s_marginLeft	= 45;
-	static const int	s_marginRight	= 30;
-	static const int	s_marginTop		= 23;
-	static const int	s_marginBottom	= 46;
+    static const int s_marginLeft = 45;
+    static const int s_marginRight = 30;
+    static const int s_marginTop = 23;
+    static const int s_marginBottom = 46;
 
-	HistogramView(QWidget* _parent = 0);
+    HistogramView(QWidget* _parent = 0);
 
-	QRect			getDrawRect() const;
-	void			setContext(CaptureContext* _context);
-	CaptureContext* getContext() { return m_context; }
-	Histogram*		getHistogram() { return m_histogram; }
-	void			updateUI();
+    QRect getDrawRect() const;
+    void setContext(CaptureContext* _context);
+    CaptureContext* getContext()
+    {
+        return m_context;
+    }
+    Histogram* getHistogram()
+    {
+        return m_histogram;
+    }
+    void updateUI();
 
-	void drawBackground(QPainter* _painter, const QRectF& _rect);
-	
-	void resizeEvent(QResizeEvent* _event);
-	void mousePressEvent(QMouseEvent* _event);
-	void mouseMoveEvent(QMouseEvent* _event);
-	void mouseReleaseEvent(QMouseEvent* _event);
-	void leaveEvent(QEvent* _event);
+    void drawBackground(QPainter* _painter, const QRectF& _rect);
+
+    void resizeEvent(QResizeEvent* _event);
+    void mousePressEvent(QMouseEvent* _event);
+    void mouseMoveEvent(QMouseEvent* _event);
+    void mouseReleaseEvent(QMouseEvent* _event);
+    void leaveEvent(QEvent* _event);
 
 Q_SIGNALS:
-	void binClicked();
+    void binClicked();
 };
 
-#endif // RTM_MTUNER_HISTOGRAMVIEW_H
+#endif  // RTM_MTUNER_HISTOGRAMVIEW_H

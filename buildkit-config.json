@@ -1,0 +1,20 @@
+{
+    "dependencies": [
+        {
+            "name": "Boost",
+            "revision": "1.71.5"
+        },
+        {
+            "name": "GPerftools",
+            "revision": "2.62.0"
+        },
+        {
+            "name": "Lz4",
+            "revision": "1.9.5"
+        },
+        {
+            "name": "RobinHoodHashing",
+            "revision": "3.11.5"
+        }
+    ]
+}

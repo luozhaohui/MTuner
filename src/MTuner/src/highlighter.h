@@ -21,24 +21,24 @@ protected:
 private:
     struct HighlightingRule
     {
-		QRegularExpression	m_pattern;
-        QTextCharFormat		m_format;
+        QRegularExpression m_pattern;
+        QTextCharFormat m_format;
     };
 
-    QVector<HighlightingRule>	m_highlightingRules;
-    QTextCharFormat				m_keywordFormat;
-    QTextCharFormat				m_keywordFormat2;
-    QTextCharFormat				m_classFormat;
-    QTextCharFormat				m_singleLineCommentFormat;
-    QTextCharFormat				m_multiLineCommentFormat;
-    QTextCharFormat				m_quotationFormat;
-	QTextCharFormat				m_includeFormat;
-    QTextCharFormat				m_functionFormat;
-	QTextCharFormat				m_functionFormat2;
-	QTextCharFormat				m_functionFormat3;
-	QTextCharFormat				m_preprocessorFormat;
-	QTextCharFormat				m_preprocessorFormat2;
-	QTextCharFormat				m_preprocessorFormat3;
+    QVector<HighlightingRule> m_highlightingRules;
+    QTextCharFormat m_keywordFormat;
+    QTextCharFormat m_keywordFormat2;
+    QTextCharFormat m_classFormat;
+    QTextCharFormat m_singleLineCommentFormat;
+    QTextCharFormat m_multiLineCommentFormat;
+    QTextCharFormat m_quotationFormat;
+    QTextCharFormat m_includeFormat;
+    QTextCharFormat m_functionFormat;
+    QTextCharFormat m_functionFormat2;
+    QTextCharFormat m_functionFormat3;
+    QTextCharFormat m_preprocessorFormat;
+    QTextCharFormat m_preprocessorFormat2;
+    QTextCharFormat m_preprocessorFormat3;
 };
 
-#endif // RTM_MTUNER_HIGHLIGHTER_H
+#endif  // RTM_MTUNER_HIGHLIGHTER_H

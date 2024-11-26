@@ -10,15 +10,15 @@
 
 class StartPageWidget : public QWidget
 {
-	Q_OBJECT
+    Q_OBJECT
 
 public:
-	StartPageWidget(QWidget* _parent = 0, Qt::WindowFlags _flags = (Qt::WindowFlags)0);
+    StartPageWidget(QWidget* _parent = 0, Qt::WindowFlags _flags = (Qt::WindowFlags)0);
 
-	void changeEvent(QEvent* _event);
+    void changeEvent(QEvent* _event);
 
 private:
-	Ui::StartPageWidget ui;
+    Ui::StartPageWidget ui;
 };
 
-#endif // RTM_MTUNER_STARTPAGEWIDGET_H
+#endif  // RTM_MTUNER_STARTPAGEWIDGET_H

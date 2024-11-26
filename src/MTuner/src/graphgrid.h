@@ -12,19 +12,21 @@ class GraphCurve;
 class GraphGrid : public QGraphicsItem
 {
 private:
-	GraphWidget*	m_graphWidget;
-	GraphCurve*		m_curve;
+    GraphWidget* m_graphWidget;
+    GraphCurve* m_curve;
 
 public:
-	GraphGrid(GraphWidget* _graphWidget, GraphCurve* _curve);
+    GraphGrid(GraphWidget* _graphWidget, GraphCurve* _curve);
 
-	void parentResized() { prepareGeometryChange(); }
+    void parentResized()
+    {
+        prepareGeometryChange();
+    }
 
-	/// QWidget
-	virtual QRectF			boundingRect() const;
-	virtual QPainterPath	shape() const;
-	virtual void			paint(QPainter* _painter, const QStyleOptionGraphicsItem* _option, QWidget* _widget);
-	
+    /// QWidget
+    virtual QRectF boundingRect() const;
+    virtual QPainterPath shape() const;
+    virtual void paint(QPainter* _painter, const QStyleOptionGraphicsItem* _option, QWidget* _widget);
 };
 
-#endif // RTM_MTUNER_GRAPHGRID_H
+#endif  // RTM_MTUNER_GRAPHGRID_H

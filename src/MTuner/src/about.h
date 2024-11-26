@@ -10,14 +10,14 @@
 
 class AboutDialog : public QDialog
 {
-	Q_OBJECT
+    Q_OBJECT
 
 public:
-	AboutDialog(QWidget* _parent = 0, Qt::WindowFlags _flags = (Qt::WindowFlags)0);
-	void changeEvent(QEvent* _event);
+    AboutDialog(QWidget* _parent = 0, Qt::WindowFlags _flags = (Qt::WindowFlags)0);
+    void changeEvent(QEvent* _event);
 
 private:
-	Ui::About ui;
+    Ui::About ui;
 };
 
-#endif // RTM_MTUNER_ABOUT_H
+#endif  // RTM_MTUNER_ABOUT_H

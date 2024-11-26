@@ -13,51 +13,51 @@ struct CaptureContext;
 
 class TagTreeModel : public QAbstractItemModel
 {
-	Q_OBJECT
+    Q_OBJECT
 
 private:
-	CaptureContext*	m_context;
-	TagTreeItem*	m_rootItem;
+    CaptureContext* m_context;
+    TagTreeItem* m_rootItem;
 
 public:
-	TagTreeModel(CaptureContext* _context, QObject* _parent = 0);
-	~TagTreeModel();
+    TagTreeModel(CaptureContext* _context, QObject* _parent = 0);
+    ~TagTreeModel();
 
-	QVariant		data(const QModelIndex& _index, int _role) const;
-	Qt::ItemFlags	flags(const QModelIndex& _index) const;
-	QVariant		headerData(int _section, Qt::Orientation _orientation, int _role = Qt::DisplayRole) const;
-	QModelIndex		index(int _row, int _column, const QModelIndex& _parent = QModelIndex()) const;
-	QModelIndex		parent(const QModelIndex& _index) const;
-	int				rowCount(const QModelIndex& _parent = QModelIndex()) const;
-	int				columnCount(const QModelIndex& _parent = QModelIndex()) const;
+    QVariant data(const QModelIndex& _index, int _role) const;
+    Qt::ItemFlags flags(const QModelIndex& _index) const;
+    QVariant headerData(int _section, Qt::Orientation _orientation, int _role = Qt::DisplayRole) const;
+    QModelIndex index(int _row, int _column, const QModelIndex& _parent = QModelIndex()) const;
+    QModelIndex parent(const QModelIndex& _index) const;
+    int rowCount(const QModelIndex& _parent = QModelIndex()) const;
+    int columnCount(const QModelIndex& _parent = QModelIndex()) const;
 
 private:
-	void setupModelData(const rtm::MemoryTagTree* _tree, TagTreeItem* _parent);
+    void setupModelData(const rtm::MemoryTagTree* _tree, TagTreeItem* _parent);
 };
 
 class TagTreeWidget : public QWidget
 {
-	Q_OBJECT
+    Q_OBJECT
 
-	CaptureContext*	m_context;
-	QTreeView*		m_tree;
+    CaptureContext* m_context;
+    QTreeView* m_tree;
 
 public:
-	TagTreeWidget(QWidget* _parent = 0, Qt::WindowFlags _flags = (Qt::WindowFlags)0);
+    TagTreeWidget(QWidget* _parent = 0, Qt::WindowFlags _flags = (Qt::WindowFlags)0);
 
-	void changeEvent(QEvent* event);
-	void setContext(CaptureContext* _context);
-	void setupTree();
+    void changeEvent(QEvent* event);
+    void setContext(CaptureContext* _context);
+    void setupTree();
 
 public Q_SLOTS:
-	void rowClicked(const QModelIndex&);
+    void rowClicked(const QModelIndex&);
 
 Q_SIGNALS:
-	void setStackTrace(rtm::StackTrace**, int);
-	void tagClicked();
+    void setStackTrace(rtm::StackTrace**, int);
+    void tagClicked();
 
 private:
-	Ui::tagTree ui;
+    Ui::tagTree ui;
 };
 
-#endif // RTM_MTUNER_TAGTREEWIDGET_H
+#endif  // RTM_MTUNER_TAGTREEWIDGET_H

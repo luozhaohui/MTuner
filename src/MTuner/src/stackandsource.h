@@ -13,26 +13,29 @@ class ExternalEditor;
 
 class StackAndSource : public QWidget
 {
-	Q_OBJECT
+    Q_OBJECT
 
-	StackTrace*		m_stackTrace;
-	SourceView*		m_source;
-	ExternalEditor*	m_editorDialog;
-	QLabel*			m_fileName;
+    StackTrace* m_stackTrace;
+    SourceView* m_source;
+    ExternalEditor* m_editorDialog;
+    QLabel* m_fileName;
 
 public:
-	StackAndSource(ExternalEditor* inEditorDlg, QWidget* _parent = 0, Qt::WindowFlags _flags = (Qt::WindowFlags)0);
+    StackAndSource(ExternalEditor* inEditorDlg, QWidget* _parent = 0, Qt::WindowFlags _flags = (Qt::WindowFlags)0);
 
-	void changeEvent(QEvent* _event);
-	StackTrace*	getStackTrace() { return m_stackTrace; }
+    void changeEvent(QEvent* _event);
+    StackTrace* getStackTrace()
+    {
+        return m_stackTrace;
+    }
 
 public Q_SLOTS:
-	void setContext(CaptureContext*);
-	void setStackTrace(rtm::StackTrace**, int);
-	void setFileName(const QString&, int, int);
+    void setContext(CaptureContext*);
+    void setStackTrace(rtm::StackTrace**, int);
+    void setFileName(const QString&, int, int);
 
 private:
-	Ui::StackAndSource ui;
+    Ui::StackAndSource ui;
 };
 
-#endif // RTM_MTUNER_STACKANDSOURCE_H
+#endif  // RTM_MTUNER_STACKANDSOURCE_H

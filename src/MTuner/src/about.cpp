@@ -7,17 +7,17 @@
 #include <MTuner/src/about.h>
 #include <MTuner/src/version.h>
 
-AboutDialog::AboutDialog(QWidget* _parent, Qt::WindowFlags /*_flags*/) :
-	QDialog(_parent, Qt::WindowSystemMenuHint | Qt::WindowTitleHint)
+AboutDialog::AboutDialog(QWidget* _parent, Qt::WindowFlags /*_flags*/)
+    : QDialog(_parent, Qt::WindowSystemMenuHint | Qt::WindowTitleHint)
 {
-	ui.setupUi(this);
-	QLabel* version = findChild<QLabel*>("labelVersion");
-	version->setText(tr("Version") + QString(" ") + QString(MTunerVersion));
+    ui.setupUi(this);
+    QLabel* version = findChild<QLabel*>("labelVersion");
+    version->setText(tr("Version") + QString(" ") + QString(MTunerVersion));
 }
 
 void AboutDialog::changeEvent(QEvent* _event)
 {
-	QDialog::changeEvent(_event);
-	if (_event->type() == QEvent::LanguageChange)
-		ui.retranslateUi(this);
+    QDialog::changeEvent(_event);
+    if (_event->type() == QEvent::LanguageChange)
+        ui.retranslateUi(this);
 }

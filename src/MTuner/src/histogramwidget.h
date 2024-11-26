@@ -13,34 +13,34 @@ class BinLoaderView;
 
 class HistogramWidget : public QWidget
 {
-	Q_OBJECT
+    Q_OBJECT
 
 private:
-	QComboBox*		m_comboType;
-	QComboBox*		m_comboHist;
-	QCheckBox*		m_chkPeaks;
-	QCheckBox*		m_chkScale;
-	HistogramView*	m_histogramView;
-	BinLoaderView*	m_binView;
+    QComboBox* m_comboType;
+    QComboBox* m_comboHist;
+    QCheckBox* m_chkPeaks;
+    QCheckBox* m_chkScale;
+    HistogramView* m_histogramView;
+    BinLoaderView* m_binView;
 
 public:
-	HistogramWidget(QWidget* _parent = 0, Qt::WindowFlags _flags = (Qt::WindowFlags)0);
+    HistogramWidget(QWidget* _parent = 0, Qt::WindowFlags _flags = (Qt::WindowFlags)0);
 
-	void changeEvent(QEvent* _event);
-	void setContext(CaptureContext* _context, BinLoaderView* _binView);
+    void changeEvent(QEvent* _event);
+    void setContext(CaptureContext* _context, BinLoaderView* _binView);
 
 public Q_SLOTS:
-	void updateUI();
-	void displayTypeChanged(int _index);
-	void displayModeChanged(int _index);
-	void showPeaksChanged(int _state);
-	void scalePeaksChanged(int _state);
+    void updateUI();
+    void displayTypeChanged(int _index);
+    void displayModeChanged(int _index);
+    void showPeaksChanged(int _state);
+    void scalePeaksChanged(int _state);
 
 Q_SIGNALS:
-	void binClicked();
+    void binClicked();
 
 private:
-	Ui::HistogramWidgetClass ui;
+    Ui::HistogramWidgetClass ui;
 };
 
-#endif // RTM_MTUNER_HISTOGRAMWIDGET_H
+#endif  // RTM_MTUNER_HISTOGRAMWIDGET_H

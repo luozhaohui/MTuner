@@ -10,40 +10,43 @@
 
 class OperationSearch : public QWidget
 {
-	Q_OBJECT
+    Q_OBJECT
 
-	QPushButton*	m_buttonPrev;
-	QPushButton*	m_buttonNext;
-	QToolButton*	m_buttonSearch;
-	QLineEdit*		m_address;
-	QLineEdit*		m_searchAddress;
-	QComboBox*		m_searchType;
-	QCheckBox*		m_leaksOnly;
+    QPushButton* m_buttonPrev;
+    QPushButton* m_buttonNext;
+    QToolButton* m_buttonSearch;
+    QLineEdit* m_address;
+    QLineEdit* m_searchAddress;
+    QComboBox* m_searchType;
+    QCheckBox* m_leaksOnly;
 
 public:
-	OperationSearch(QWidget* _parent = 0, Qt::WindowFlags _flags = (Qt::WindowFlags)0);
+    OperationSearch(QWidget* _parent = 0, Qt::WindowFlags _flags = (Qt::WindowFlags)0);
 
-	bool isLeaksOnlyChecked() const { return m_leaksOnly->isChecked(); }
-	void changeEvent(QEvent* _event);
-	void setPrevEnabled(bool);
-	void setNextEnabled(bool);
-	void setAddress(uint64_t _address);
+    bool isLeaksOnlyChecked() const
+    {
+        return m_leaksOnly->isChecked();
+    }
+    void changeEvent(QEvent* _event);
+    void setPrevEnabled(bool);
+    void setNextEnabled(bool);
+    void setAddress(uint64_t _address);
 
 Q_SIGNALS:
-	void searchByAddress(uint64_t);
-	void searchBySize(uint64_t);
-	void findPrev();
-	void findNext();
-	void showLeaksOnly(bool);
+    void searchByAddress(uint64_t);
+    void searchBySize(uint64_t);
+    void findPrev();
+    void findNext();
+    void showLeaksOnly(bool);
 
 public Q_SLOTS:
-	void search();
-	void searchTypeChanged(int);
-	void searchStringChanged(const QString&);
-	void leaksOnlyChanged(int);
+    void search();
+    void searchTypeChanged(int);
+    void searchStringChanged(const QString&);
+    void leaksOnlyChanged(int);
 
 private:
-	Ui::OperationSearchWidget ui;
+    Ui::OperationSearchWidget ui;
 };
 
-#endif // RTM_MTUNER_OPERATIONSEARCH_H
+#endif  // RTM_MTUNER_OPERATIONSEARCH_H

@@ -8,4 +8,4 @@
 
 static const char* MTunerVersion = "4.8.7";
 
-#endif // RTM_MTUNER_VERSION_H
+#endif  // RTM_MTUNER_VERSION_H
